@@ -41,3 +41,22 @@ php가 순수한 HTML 코드를 최종적으로 만들어서 웹서버에게 보
     $first = "coding";
     echo $first."everybody";
 ?>
+
+php / jQuery 중 Ajax
+
+전통적으로 
+ - php
+	html내부에 삽입하여 프로그래밍한다
+- Ajax 
+	Ajax를 활용하면 완전히 분리한 상태로 개발할 수있다.
+
+php ex) 
+
+<?php 
+    $my_name = "Jino Bae";
+    ?>
+
+    <p>안녕하세요 제 이름은 <?=$my_name?> 입니다!</p>
+
+    
+
