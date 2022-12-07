@@ -49,3 +49,19 @@ for($i = 0; $i < count($members); $i++){
 	rsort($li);
 
 php도 따로 숫자나 문자를 구분하지 않는다.
+
+
+
+배열의 데이터 기준으로 반복작업하는 방법.
+
+<?php
+$grades = array('egoing'=>10, 'k8805'=>6, 'sorialgi'=>80);
+foreach($grades as $key => $value){
+    echo "key: {$key} value:{$value}<br />";
+}
+?>
+
+출력 결과 : 
+key : sorialgi  value : 80
+key : k8805     value : 6
+key : egoing    value : 10
