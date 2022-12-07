@@ -2,7 +2,7 @@
  <?php 
 // 지금부터 php가 시작한다 라는것.
     echo "Hello world";
-    // echo? 출력같은 역할.
+    // echo? 출력같은 역할. && echo , print
 ?> 
 
 <?php
