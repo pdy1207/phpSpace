@@ -32,7 +32,7 @@
     echo 4;
     echo 5;
   }
-  echo 6
+  echo 6;
 ?>
 
 <!-- IF문 응용입니다. HTML파일과 같이보세요. -->
