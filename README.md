@@ -51,6 +51,7 @@ $변수이름 = 초깃값; </br>
 
 
 <hr>
+※ 언어는 변수, 조건문, 반복문, 함수 必 공부!
 
  ### - [PHP 연습사이트](http://codepad.org/sngDu1ck)
  ### - [크롬에서 json data를 이쁘게 보여주는 확장 프로그램](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc)
