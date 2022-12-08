@@ -35,7 +35,7 @@ php url 파라미터 즉 index.php?addresss=서울&name=egoing&age=20...
     </ol>
     <h2>
       <?php
-        echo $_GET['id']; id에 따라 바뀐다. CSS / HTML / JavaScript
+        echo $_GET['id']; id에 따라 바뀐다. CSS / HTML / JavaScript 즉 데이터를 가져옴
       ?>
 	
 	</body>
