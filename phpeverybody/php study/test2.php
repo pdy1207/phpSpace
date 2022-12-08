@@ -51,6 +51,27 @@ for($i = 0; $i < count($members); $i++){
 php도 따로 숫자나 문자를 구분하지 않는다.
 
 
+배열
+<?php
+	$coworkers = array('egoing', 'leezche', 'duru', 'taeho');
+	echo $coworkers[1]."\n";
+	echo $coworkers[3];
+	
+?>
+
+while 문
+
+<?php
+	echo "1\n";
+
+	$i = 0;
+	while($i < 3){
+	echo "2\n";
+	$i++;
+	}
+
+	echo "3\n";
+?>
 
 배열의 데이터 기준으로 반복작업하는 방법.
 
