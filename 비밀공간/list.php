@@ -21,7 +21,9 @@
         $catagory = $_POST['catgo'];
         $search_con = $_POST['search'];
         $sql = "select IFNULL(biz_type, '0') as biz_type, IFNULL(biz_name, '0') as biz_name, IFNULL(biz_rc, '0') as biz_rc, IFNULL(biz_phonecorp, '0') as biz_phonecorp, IFNULL(biz_phone, '0') as biz_phone, IFNULL(biz_birth, '0') as biz_birth, IFNULL(biz_gender, '0') as biz_gender, IFNULL(biz_regtime, '0') as biz_regtime, IFNULL(biz_flag, '0') as biz_flag from admin.tb_bizring where $catagory like '%$search_con%' and biz_type = '간편' order by biz_regtime desc";
-    } else if(isset($_POST['search_date'])){
+      } 
+  //지우셈
+  else if(isset($_POST['search_date'])){
         $search_date = $_POST['search_date'];
                 $sql2 = "SELECT  biz_type, 
                         biz_name, 
@@ -105,21 +107,28 @@ $total_rows = mysqli_num_rows($result);
             </select>
             
             <input type="text" name="search" size="20" />
-<!--
-            <input type = "date" name ="date_from" id="fromDate"  />
-            <input type = "date" name ="date_to" id="toDate" />
 
-            <script>
-                
-                var today = new Date().toISOString().substring(0, 10);
+          //
+          var today = new Date().toISOString().substring(0, 10);
                 var thisday = new Date();
                 var tomorrow = new Date(thisday.setDate(thisday.getDate() + 1));
                 
                 document.getElementById('fromDate').value = today;
                 document.getElementById('toDate').value = tomorrow.toISOString().substring(0, 10);
-                
-            </script>
--->
+                <?php
+                    $start_date = $_POST['date_from'];
+                    $end_date = $_POST['date_to'];
+                    
+                    if($start_date && $end_date){
+                        $sql = "SELECT * FROM admin where $column like '%$find%' and date between '$start_date' and '$end_date';";
+                    }
+                    else $sql = "SELECT * FROM admin where $column like '%$find%';";
+                    
+                    $result2 = mysqli_query($sql);  
+                ?>
+          
+          
+          
             <button>검색</button>
 
             <!-- 등록 시간 기준으로 찾기 -->            
