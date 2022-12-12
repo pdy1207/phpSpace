@@ -21,11 +21,24 @@
         $catagory = $_POST['catgo'];
         $search_con = $_POST['search'];
         $sql = "select IFNULL(biz_type, '0') as biz_type, IFNULL(biz_name, '0') as biz_name, IFNULL(biz_rc, '0') as biz_rc, IFNULL(biz_phonecorp, '0') as biz_phonecorp, IFNULL(biz_phone, '0') as biz_phone, IFNULL(biz_birth, '0') as biz_birth, IFNULL(biz_gender, '0') as biz_gender, IFNULL(biz_regtime, '0') as biz_regtime, IFNULL(biz_flag, '0') as biz_flag from admin.tb_bizring where $catagory like '%$search_con%' and biz_type = '간편' order by biz_regtime desc";
-    } else {
+    } else if(isset($_POST['search_date'])){
+        $search_date = $_POST['search_date'];
+                $sql2 = "SELECT  biz_type, 
+                        biz_name, 
+                        biz_rc, 
+                        biz_phonecorp, 
+                        biz_phone,
+                        biz_birth, 
+                        biz_gender,
+                        biz_regtime,
+                        biz_flag  
+                FROM admin.tb_bizring 
+                WHERE DATE(biz_regtime) = '$search_date' order by biz_regtime";
+    }
+     else {
         $sql = "select IFNULL(biz_type, '0') as biz_type, IFNULL(biz_name, '0') as biz_name, IFNULL(biz_rc, '0') as biz_rc, IFNULL(biz_phonecorp, '0') as biz_phonecorp, IFNULL(biz_phone, '0') as biz_phone, IFNULL(biz_birth, '0') as biz_birth, IFNULL(biz_gender, '0') as biz_gender, IFNULL(biz_regtime, '0') as biz_regtime, IFNULL(biz_flag, '0') as biz_flag from admin.tb_bizring where biz_type = '간편' order by biz_regtime desc;";
     }
-
-    $sql = ""
+  
 ?>
     <script>
     function download() {
@@ -109,11 +122,12 @@ $total_rows = mysqli_num_rows($result);
 -->
             <button>검색</button>
 
-            <!-- 등록 시간 기준으로 찾기 -->
-            <form action="list.php" method="post"> 
-            <label for="date">날짜를 선택하세요 : </label>
-            <input type="Date" name="search_date"  />
+            <!-- 등록 시간 기준으로 찾기 -->            
+                <label >날짜를 선택하세요 : </label>
+                <input type="Date" name="search_date"  />
             <button>검색</button>
+
+
         </form>
 
 
