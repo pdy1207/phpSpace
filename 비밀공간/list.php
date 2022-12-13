@@ -15,32 +15,54 @@
     <link rel="stylesheet" href="./spin.css" />
 
 <?php
+        if (isset($_POST['date_from'])) {
+
+            $start_date = $_POST['date_from'];
+            $end_date = $_POST['date_to'];
 
 
-    if(isset($_POST['search'])){
+            $sql = "select 
+                    IFNULL(biz_type, '0') as biz_type, 
+                    IFNULL(biz_name, '0') as biz_name, 
+                    IFNULL(biz_rc, '0') as biz_rc, 
+                    IFNULL(biz_phonecorp, '0') as biz_phonecorp, 
+                    IFNULL(biz_phone, '0') as biz_phone, 
+                    IFNULL(biz_birth, '0') as biz_birth, 
+                    IFNULL(biz_gender, '0') as biz_gender, 
+                    IFNULL(biz_regtime, '0') as biz_regtime, 
+                    IFNULL(biz_flag, '0') as biz_flag 
+            from admin.tb_bizring where $start_date like '%$end_date' and biz_type = '간편' between %$start_date% and %$end_date%";
+
+        }
+        // isset()의 함수 isset( $var1, $var2) 등 설정되어있는지 확인함. 설정되어있음 true, 그렇지 않다면 false
+        // HTML의 form을 이용하여 값을 전송하는 방식은 get post 허나 get 같은경우는 URL에 남음 ,
+        // post 는 URL에 안남음 POST방식으로 전송된 값은 $_POST 으로 받습니다.
+    if(isset($_POST['search'])){ 
         $catagory = $_POST['catgo'];
         $search_con = $_POST['search'];
-        $sql = "select IFNULL(biz_type, '0') as biz_type, IFNULL(biz_name, '0') as biz_name, IFNULL(biz_rc, '0') as biz_rc, IFNULL(biz_phonecorp, '0') as biz_phonecorp, IFNULL(biz_phone, '0') as biz_phone, IFNULL(biz_birth, '0') as biz_birth, IFNULL(biz_gender, '0') as biz_gender, IFNULL(biz_regtime, '0') as biz_regtime, IFNULL(biz_flag, '0') as biz_flag from admin.tb_bizring where $catagory like '%$search_con%' and biz_type = '간편' order by biz_regtime desc";
-      } 
-  //지우셈
-  else if(isset($_POST['search_date'])){
-        $search_date = $_POST['search_date'];
-                $sql2 = "SELECT  biz_type, 
-                        biz_name, 
-                        biz_rc, 
-                        biz_phonecorp, 
-                        biz_phone,
-                        biz_birth, 
-                        biz_gender,
-                        biz_regtime,
-                        biz_flag  
-                FROM admin.tb_bizring 
-                WHERE DATE(biz_regtime) = '$search_date' order by biz_regtime";
+        $sql = "select 
+                    IFNULL(biz_type, '0') as biz_type, 
+                    IFNULL(biz_name, '0') as biz_name,                     
+                    IFNULL(biz_rc, '0') as biz_rc, 
+                    IFNULL(biz_phonecorp, '0') as biz_phonecorp, 
+                    IFNULL(biz_phone, '0') as biz_phone, 
+                    IFNULL(biz_birth, '0') as biz_birth, 
+                    IFNULL(biz_gender, '0') as biz_gender, 
+                    IFNULL(biz_regtime, '0') as biz_regtime, 
+                    IFNULL(biz_flag, '0') as biz_flag 
+                from admin.tb_bizring where $catagory like '%$search_con%' and biz_type = '간편' order by biz_regtime desc";
+    } else {
+        $sql = "select 
+        IFNULL(biz_type, '0') as biz_type, 
+        IFNULL(biz_name, '0') as biz_name, 
+        IFNULL(biz_rc, '0') as biz_rc, 
+        IFNULL(biz_phonecorp, '0') as biz_phonecorp, 
+        IFNULL(biz_phone, '0') as biz_phone, 
+        IFNULL(biz_birth, '0') as biz_birth, IFNULL(biz_gender, '0') as biz_gender, 
+        IFNULL(biz_regtime, '0') as biz_regtime, IFNULL(biz_flag, '0') as biz_flag 
+    from admin.tb_bizring where biz_type = '간편' order by biz_regtime desc;";
     }
-     else {
-        $sql = "select IFNULL(biz_type, '0') as biz_type, IFNULL(biz_name, '0') as biz_name, IFNULL(biz_rc, '0') as biz_rc, IFNULL(biz_phonecorp, '0') as biz_phonecorp, IFNULL(biz_phone, '0') as biz_phone, IFNULL(biz_birth, '0') as biz_birth, IFNULL(biz_gender, '0') as biz_gender, IFNULL(biz_regtime, '0') as biz_regtime, IFNULL(biz_flag, '0') as biz_flag from admin.tb_bizring where biz_type = '간편' order by biz_regtime desc;";
-    }
-  
+
 ?>
     <script>
     function download() {
@@ -108,39 +130,24 @@ $total_rows = mysqli_num_rows($result);
             
             <input type="text" name="search" size="20" />
 
-          //
-          var today = new Date().toISOString().substring(0, 10);
+
+            
+            <input type = "date" name ="date_from" id="fromDate"  />
+            <input type = "date" name ="date_to" id="toDate" />
+           
+            <script>
+                
+                var today = new Date().toISOString().substring(0, 10);
                 var thisday = new Date();
                 var tomorrow = new Date(thisday.setDate(thisday.getDate() + 1));
                 
                 document.getElementById('fromDate').value = today;
                 document.getElementById('toDate').value = tomorrow.toISOString().substring(0, 10);
-                <?php
-                    $start_date = $_POST['date_from'];
-                    $end_date = $_POST['date_to'];
-                    
-                    if($start_date && $end_date){
-                        $sql = "SELECT * FROM admin where $column like '%$find%' and date between '$start_date' and '$end_date';";
-                    }
-                    else $sql = "SELECT * FROM admin where $column like '%$find%';";
-                    
-                    $result2 = mysqli_query($sql);  
-                ?>
-          
-          
-          
+                
+            </script>
+
             <button>검색</button>
-
-            <!-- 등록 시간 기준으로 찾기 -->            
-                <label >날짜를 선택하세요 : </label>
-                <input type="Date" name="search_date"  />
-            <button>검색</button>
-
-
         </form>
-
-
-
     </div>
     <table class=middle>
         <thead>
@@ -196,3 +203,5 @@ $total_rows = mysqli_num_rows($result);
 </body>
 
 </html>
+
+- https://hanuscrypto.tistory.com/entry/Php%EB%A1%9C-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B8%B0-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A7%8C%EB%93%A4%EA%B8%B016-%EB%82%A0%EC%A7%9C-%EA%B8%B0%EA%B0%84-%EC%A1%B0%ED%9A%8C
