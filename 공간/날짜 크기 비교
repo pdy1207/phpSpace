@@ -1,3 +1,6 @@
+strtotime(date); //함수
+
+
 <?php        
         
         $date_to =  $_POST['date_to'];
