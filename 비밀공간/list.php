@@ -74,7 +74,6 @@
 
 /*
       echo "rckey 값: ".$_SESSION['rckey']."<br/>";
-
 */
 
 if ($connect->connect_error) {
@@ -119,7 +118,7 @@ $total_rows = mysqli_num_rows($result);
             </div>
 
         <div style = "height: 30px; margin : 15px 10px; ">
-            <form action="datelist.php" method="POST">           
+            <form action="detail_list.php" method="POST">           
                 <input type = "date" name ="date_to"  />
                 <input type = "date" name ="date_from" style="margin-right: 10px;" />
                 <button type="submit">날짜 검색</button>        
