@@ -1,5 +1,6 @@
 strtotime(date); //함수
-
+strtotime  함수로 생성한 timestamp를 date 함수로 우리가 알아보기 쉽게 만들어주는 활용법입니다.
+특정 날짜에 더하기, 빼기 등을 할 수 있습니다.
 
 <?php        
         
