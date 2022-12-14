@@ -49,6 +49,10 @@ $변수이름 = 초깃값; </br>
 4. 변수의 이름으로 PHP에서 미리 정의한 $this는 사용할 수 없습니다.
 5. 변수의 이름은 대소문자를 구분합니다.
 
+### php 웹사이트
+
+ - [PHP MySQL](https://www.php.net/manual/en/mysqlinfo.api.choosing.php)
+ - [Mysqli PHP](https://www.php.net/manual/en/mysqli.quickstart.dual-interface.php)
 
 <hr>
 ※ 언어는 변수, 조건문, 반복문, 함수 必 공부!
