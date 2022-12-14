@@ -17,6 +17,24 @@
 <?php
         $date_to =  $_POST['date_to'];
         $date_from = $_POST['date_from'];
+
+        // ex) 11-30 ~ 11-29 눌렀을때 변수
+        $str_now = strtotime($date_to);
+        $str_target = strtotime($date_from);
+
+        // ex) 11-30 ~ 11-29 눌렀을때 Alert창 
+
+        if ($str_now > $str_target) {
+            echo "<script>
+            alert('잘못된 접근입니다. 날짜를 다시 확인해주세요.');
+            </script>";
+            echo "<script>
+            document.location.href = 'datalist.php';
+            </script>";
+        } 
+
+    // 날짜 기간 검색함수
+
     if($date_to && $date_from){
         $sql = "select  
 
@@ -44,9 +62,6 @@
             order by biz_regtime desc;";
 
            }
-
-           
-
 ?>
     <script>
     function download() {
@@ -102,6 +117,9 @@ $total_rows = mysqli_num_rows($result);
         <button id="exel_down" onclick='hold()'>선택 보류하기</button>
         <button id="exel_down" onclick='reload()'>전체보기</button>
     </div>
+
+    <!-- flex 사용하기 위해 div박스로서 감싸고 style 주었습니다. -->
+
     <div style="display: flex;">
         <div style = "height: 30px; margin : 10px">
             <form action="list.php" method="post">
@@ -117,14 +135,17 @@ $total_rows = mysqli_num_rows($result);
                 <button>검색</button>
             </form>        
         </div>
+        
+        <!-- 날짜기간으로서 고객 검색 -->
 
         <div style = "height: 30px; margin : 15px 10px; ">
-                <form action="datelist.php" method="POST">           
+                <form action="datalist.php" method="POST">           
                     <input type = "date" name ="date_to"  />
                     <input type = "date" name ="date_from" style="margin-right: 10px;" />
                     <button type="submit">날짜 검색</button>        
                 </form>         
         </div>
+        
     </div>
     <table class=middle>
         <thead>
