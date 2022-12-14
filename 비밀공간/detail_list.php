@@ -29,7 +29,7 @@
             alert('잘못된 접근입니다. 날짜를 다시 확인해주세요.');
             </script>";
             echo "<script>
-            document.location.href = 'datalist.php';
+            document.location.href = 'detail_list.php';
             </script>";
         } 
 
@@ -37,7 +37,6 @@
 
     if($date_to && $date_from){
         $sql = "select  
-
                 *
                 
                 FROM admin.tb_bizring 
@@ -56,8 +55,6 @@
             IFNULL(biz_gender, '0') as biz_gender, 
             IFNULL(biz_regtime, '0') as biz_regtime, 
             IFNULL(biz_flag, '0') as biz_flag 
-
-
             from admin.tb_bizring where biz_type = '간편' 
             order by biz_regtime desc;";
 
@@ -90,7 +87,6 @@
 
 /*
       echo "rckey 값: ".$_SESSION['rckey']."<br/>";
-
 */
 
 if ($connect->connect_error) {
@@ -139,7 +135,7 @@ $total_rows = mysqli_num_rows($result);
         <!-- 날짜기간으로서 고객 검색 -->
 
         <div style = "height: 30px; margin : 15px 10px; ">
-                <form action="datalist.php" method="POST">           
+                <form action="detail_list.php" method="POST">           
                     <input type = "date" name ="date_to"  />
                     <input type = "date" name ="date_from" style="margin-right: 10px;" />
                     <button type="submit">날짜 검색</button>        
