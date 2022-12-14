@@ -29,4 +29,4 @@ strtotime(date); //함수
         <input type = "date" name ="date_from" style="margin-right: 10px;" />
         
         
-        //post 넘기고 날짜의 대한 제한걸기
+        //post 넘기고 날짜의 대한 제한걸기입니당
