@@ -31,3 +31,44 @@ strtotime  함수로 생성한 timestamp를 date 함수로 우리가 알아보�
         
         
         //post 넘기고 날짜의 대한 제한걸기입니당
+        
+        
+DATE 타입
+
+if ( $date_to===$date_from ) {
+    $date_query = "biz_regtime='{$date_to}'";
+} else {
+    $date_query = "biz_regtime BETWEEN '{$date_to}' AND '{$date_from}'";
+}
+$sql = "select 
+*
+FROM admin.tb_bizring
+WHERE {$date_query}
+ORDER BY biz_regtime DESC";
+
+
+DATETIME 타입
+
+$sql = "select 
+*
+FROM admin.tb_bizring
+WHERE biz_regtime BETWEEN '{$date_to} 00:00:00' AND '{$date_from} 23:59:59'
+ORDER BY biz_regtime DESC";
+
+
+TIMESTAMP 타입 감쌀 필요 x
+
+WHERE biz_regtime BETWEEN {$str_now} AND {$str_target}
+
+if ( $date_to && $date_from ) {
+    // biz_regtime BETWEEN {$str_now} AND {$str_target}
+} else if ( $date_to ) {
+    // biz_regtime>={$str_now}
+} else if ( $date_from ) {
+    // biz_regtime<={$str_target}
+} else {
+    // 경고창 - 날짜 하나라도 지정
+}
+
+
+
