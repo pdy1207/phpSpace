@@ -53,7 +53,7 @@ $변수이름 = 초깃값; </br>
 
  - [PHP MySQL](https://www.php.net/manual/en/mysqlinfo.api.choosing.php)
  - [Mysqli PHP](https://www.php.net/manual/en/mysqli.quickstart.dual-interface.php)
-
+ - [PHP School](https://www.phpschool.com/)
 <hr>
 ※ 언어는 변수, 조건문, 반복문, 함수 必 공부!
 
