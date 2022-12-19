@@ -1,3 +1,10 @@
+checkbox = name[]
+
+[](배열) 붙이지 않았던 기억이 나기도 하는데 테스트해 보니 
+[] 배열 문자를 빼면 checkbox 데이터가 한 개 이상은 가져오지 않으니 
+참고하시면 좋을 것 같습니다.
+
+
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 if(isset($_POST['submit'])){//폼데이터가 전송되었다면
@@ -54,3 +61,6 @@ if(isset($_POST['submit'])){
 
 }
 ?>
+
+
+
