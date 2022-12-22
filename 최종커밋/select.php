@@ -2,7 +2,7 @@
     $conn = mysqli_connect(
         'localhost', 
         'root', 
-        'infocar1588*', 
+        '', 
         'opentutorials'
     ); //DB연동 변수 담기
     
