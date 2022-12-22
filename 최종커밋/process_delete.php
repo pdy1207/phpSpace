@@ -3,7 +3,7 @@
     $conn = mysqli_connect(
         'localhost', 
         'root', 
-        'infocar1588*', 
+        '', 
         'opentutorials'
     );
     settype($_POST['id'], 'integer'); // settype에 의해서 id는 무조권 정수가 된다.
