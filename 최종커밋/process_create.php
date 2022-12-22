@@ -3,7 +3,7 @@
     $conn = mysqli_connect(
         'localhost', 
         'root', 
-        'infocar1588*', 
+        '', 
         'opentutorials'
     );
     print_r($_POST);
