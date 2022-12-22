@@ -1,5 +1,5 @@
 <?php
-   $conn = mysqli_connect("localhost", "root", "infocar1588*","opentutorials");
+   $conn = mysqli_connect("localhost", "root", "","opentutorials");
 
     /**  데이터베이스 서버, username, password, 스키마 데이터베이스 이름
     *    이러한 비밀번호 쓰면안됨. 1111x 코드에 박는것도x 
