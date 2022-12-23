@@ -42,7 +42,22 @@
  - 배열 요소를 문자열로 집합
 
 
+<hr>
 
+구분자로 콤마 ,를 사용했다고 가정하고, list_del.php 예제입니다.
+
+      <?php
+
+      $data = $_POST['data'] ?? ''; // PHP v7.0 이상. 미만이면 $data = isset($_POST['data']) ? $_POST['data'] : '';
+
+      // 숫자와 ,로만 구성된 문자열이 아니면 중단!
+      if ( !preg_match('/^[0-9,]+$/', $data) ) exit('<script>alert("잘못된 접근 / 보류할 사람 미선택 등");history.back();</script>');
+
+      $temp = preg_split('/,/', $data, -1, 1); // 콤마로 분리, 빈 배열 제외
+      if ( !count($temp) ) exit('<script>alert("보류할 사람 미지정");history.back();</script>');
+
+      // 이제 반복을 하든, 한번에 처리하든 $temp값 사용하면 됩니다.
+      echo '<xmp>', print_r($temp, 1), '</xmp>'; // 이렇게 출력해보면 감이 잡힐 거에요.
 
 
 
