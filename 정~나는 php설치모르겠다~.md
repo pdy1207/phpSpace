@@ -1,4 +1,4 @@
-## 간단하게 정리하였습니다. 구체적인 설명이 필요하시면 [링크](https://parkdoyoung98.tistory.com/) 참조
+## 간단하게 정리하였습니다. 구체적인 설명이 필요하시면 [링크](https://parkdoyoung98.tistory.com/25) 참조
 
 
 ![20221223_233132](https://user-images.githubusercontent.com/110442250/209353628-e4309b72-65df-4c74-b917-01991bb12711.jpg)
