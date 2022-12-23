@@ -4,5 +4,5 @@
 2. 쿼리문 잘 실행되는지 문제없는지?
 3. input 즉 날짜 값에따라 명단이 잘나오는지? 
 
-- [공부](https://www.inflearn.com/course/web3-php-mysql/unit/10953?category=questionDetail&tab=curriculum&q=7055)
+
 
