@@ -4,5 +4,5 @@
 해당 CSS파일이 로드된 페이지 접속 후 <br>
 `windows : ctrl + shift + r`
 `mac : command + shift + r` <br>
-을 눌러 페이지를 리로드 해 주시면 될 것 같아요
+을 눌러 페이지를 리로드 
 
