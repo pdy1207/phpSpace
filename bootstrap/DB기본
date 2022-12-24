@@ -1,0 +1,25 @@
+create database testdb;
+
+show databases;
+
+
+create table testtable(
+	id int(11) not null auto_increment,
+	title varchar(30) not null,
+	description text,
+	created datetime not null,
+	primary key(id)
+) engine=innoDB;
+
+insert into testtable (title, description, created) values ('Python' , 'Python is...', NOW());
+
+
+insert into testtable (title, description, created) values ('HTML' , 'HTML is...', NOW());
+insert into testtable (title, description, created) values ('CSS' , 'CSS is...', NOW());
+insert into testtable (title, description, created) values ('JAVA' , 'JAVA is...', NOW());
+
+.
+.
+.
+
+select * from  testtable ;
