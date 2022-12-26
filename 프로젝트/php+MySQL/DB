@@ -1,0 +1,37 @@
+CREATE DATABASE grade;
+
+USE grade;
+
+CREATE TABLE gradeinfo(
+	id int(11) NOT NULL AUTO_INCREMENT,
+	name varchar(10) NOT NULL,
+	python int(3) NOT NULL,
+	java int(3) NOT NULL,
+	c int(3) NOT NULL,
+	PRIMARY KEY(id)
+);
+
+INSERT INTO gradeinfo
+(
+	name, 
+	python,
+	java,
+	c
+)VALUES (
+	'모모',
+	'77',
+	'72',
+	'71'
+);
+
+SELECT * FROM GRADEINFO;
+
+
+
+
+
+
+
+
+
+
