@@ -2,4 +2,7 @@
 - [APMSetup 설치](https://chim2.tistory.com/m/28?category=891745)
 - [vscode scss 적용](https://anerim.tistory.com/192)
 
+- [7버전 아파치 php mysql](https://soda-dev.tistory.com/m/52)
+
+
 # 본 파일은 PHP 5.2.12 / MySQL 5.1.41 버전 입니다 Maybe ... @_@);;; 
